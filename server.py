@@ -15,5 +15,11 @@ def register():
     
     return 'You can sign up'
 
+@app.route('/data')
+def data():
+    
+    return 'Pincode'
+
 if __name__ == '__main__':
     app.run()
+
