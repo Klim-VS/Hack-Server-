@@ -14,6 +14,9 @@ if reg == "Yes":
     new_passw = new_passw.strip()
     existing_password = new_passw
     print ("Now please login")
+
+#if reg == "No":
+
     
 login = input("Your login? ")
 login = login.strip()
