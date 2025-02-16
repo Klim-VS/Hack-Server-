@@ -13,16 +13,30 @@ def hello_world():
 default_login = "Hacker"
 default_password = "11"
   
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login(): # http://127.0.0.1:5000/login?username=Hacker&password=11
-    username = request.args.get('username')
-    password = request.args.get('password')
-   # if default_login == username:
-    # if default_password == password: 
-    #         return "True"
-    #return "False"
-    user = "Klim Sytnyk"
-    return render_template('login.html',name = user)
+    if request.method == 'GET':
+            user = "Klim Sytnyk"
+            return render_template('login.html',name = user)
+    
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if default_login == username:
+         if default_password == password: 
+            return render_template('success.html')
+        return render_template('unsuccess.html')
+
+@app.route('/success')
+def success(): 
+
+    return render_template('success.html')
+
+@app.route('/fail')
+def fail(): 
+
+    return render_template('unsuccess.html')
 
 user_store=UserStore()
 @app.route('/register')
