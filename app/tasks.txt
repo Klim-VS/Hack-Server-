@@ -1,0 +1,2 @@
+1. Implement UI for register funcionality
+2. Enable login funcionality for newly registered
